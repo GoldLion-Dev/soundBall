@@ -43,7 +43,7 @@ audios[7] = document.getElementById("audio_7");
 audios[8] = document.getElementById("audio_8");
 audio = document.createElement("audio");
 
-audio.setAttribute("src", "assets/audio/1.ogg");
+audio.setAttribute("src", "assets/audio/1.mp3");
 
 function random(range) {
   return Math.ceil(range * Math.random()) || 1;
@@ -168,7 +168,10 @@ class Stick {
         sound.muted = false;
         sound.volume = 1.0;
         sound.currentTime = 1.0;
-        sound.play();
+        sound.addEventListener("canplay", function() {
+          sound.play();
+        });
+        
       });
     } else {
       // sound.muted = true;
