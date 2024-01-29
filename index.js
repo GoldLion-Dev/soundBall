@@ -90,7 +90,7 @@ class Dot {
   drawLight(ctx) {
     ctx.drawImage(
       this.lightImg,
-      this.pos.x - this.lightSize / 2,
+      this.pos.x - this.lightSize * 4 / 5,
       this.pos.y - this.lightSize / 2,
       this.lightSize + 60,
       this.lightSize
@@ -254,6 +254,7 @@ class App {
     this.ropes = [];
 
     const TOTAL = App.width / 15;
+    // const TOTAL = 10;
     for (let i = 0; i < TOTAL + 1; i++) {
       const x = i * 15;
       const y = 0;
@@ -262,7 +263,8 @@ class App {
       const r = random(255);
       const g = random(255);
       const b = random(255);
-      const strokeColor = `rgb(${r}, ${g}, ${b})`;
+      // const strokeColor = `rgb(${r}, ${g}, ${b})`;
+      const strokeColor = "#333333";
       const rope = new Rope({ x, y, gap, segments, strokeColor });
       rope.pin(0);
 
